@@ -3,7 +3,7 @@ name: Deploy Quartz site
 on:
   push:
     branches:
-      - v4   # ta branche Quartz
+      - v4   # Branche où tu veux déployer Quartz
   workflow_dispatch:
 
 jobs:
@@ -20,7 +20,7 @@ jobs:
           node-version: '20'
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build Quartz
         run: npx quartz build
@@ -30,3 +30,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
+
